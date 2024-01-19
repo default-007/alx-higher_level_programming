@@ -1,31 +1,25 @@
+#ifndef LISTS_H
+#define LISTS_H
+
 #include <stdlib.h>
-#include "lists.h"
 
 /**
- * check_cycle - Checks if a singly-linked list contains a cycle.
- * @list: A singly-linked list.
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
  *
- * Return: If there is no cycle - 0.
- *         If there is a cycle - 1.
+ * Description: singly linked list node structure
+ * 
  */
-int check_cycle(listint_t *list)
+typedef struct listint_s
 {
-	listint_t *slow, *fast;
+	int n;
+	struct listint_s *next;
+} listint_t;
 
-	if (list == NULL || list->next == NULL)
-		return (0);
+size_t print_listint(const listint_t *h);
+listint_t *add_nodeint(listint_t **head, const int n);
+void free_listint(listint_t *head);
+int check_cycle(listint_t *list);
 
-	slow = list->next;
-	fast = list->next->next;
-
-	while (slow && fast && fast->next)
-	{
-		if (slow == fast)
-			return (1);
-
-		slow = slow->next;
-		fast = fast->next->next;
-	}
-
-	return (0);
-}
+#endif /* LISTS_H */
