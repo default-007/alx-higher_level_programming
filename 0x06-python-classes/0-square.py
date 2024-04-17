@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""Square generation module for Python project 0x06
-"""
+
+"""Define a class Square."""
 
 
 class Square:
-    """class defined for square generation
-    """
+    """Represent a square."""
     pass
